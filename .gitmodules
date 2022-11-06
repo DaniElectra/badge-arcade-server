@@ -1,0 +1,3 @@
+[submodule "badge-arcade-authentication"]
+	path = badge-arcade-authentication
+	url = git@github.com:DaniElectra/badge-arcade-authentication

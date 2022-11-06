@@ -2,6 +2,14 @@
 
 An open-source implementation of the servers for Nintendo Badge Arcade.  
 
+## Current status  
+
+Nintendo Badge Arcade uses NEX as a communication method between the game and the servers. The previous servers I made weren't using NEX. Instead, they were more like a *patch* to store the game saves locally.  
+Currently, I am working on implementing proper servers over NEX. You can find the current progress on the folders of this project:  
+
+- `badge-arcade-authentication` contains the NEX authentication server.  
+- `original` contains the original implementation.  
+
 ## How to use
 
 First, download the project using `npm`:
