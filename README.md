@@ -9,6 +9,7 @@ Nintendo Badge Arcade uses NEX as a communication method between the game and th
 Currently, I am working on implementing proper servers over NEX. You can find the current progress on the folders of this project:  
 
 - `badge-arcade-authentication` contains the NEX authentication server.  
+- `badge-arcade-secure` contains the NEX secure server.  
 - `original` contains the original implementation.  
 
 ## How to use
@@ -39,17 +40,20 @@ mitmproxy -s badge-arcade.py --no-http2
 
 ## What works  
 
-- [x] GET your saved data  
-- [x] POST new data  
+- [ ] Connect to the servers
+- [x] GET your saved data*  
+- [x] POST new data*  
 - [ ] Handle creating new accounts
+
+\* This functionality hasn't been tested, but it should theoretically work.  
 
 ## Internal workings  
 
 Before connecting to the main server, some connections are made to Nintendo's BOSS servers to retrieve the following files:  
 
 - `playinfo_v131.dat`: Unknown purpose. This file is **always** retrieved.  
-- `data_v131.dat`: Yaz0 compressed SARC archive. It mostly contains text and dialogues. This file is only retrieved when there's a newer file on the server.  
-- `allbadge_v131.dat`: Yaz0 compressed SARC archive. It contains all badges available in the game. I haven't been able to capture traffic to this file, so I suppose it's only retrieved on **creation of new accounts**.  
+- `data_v131.dat`: SARC archive. It mostly contains text and dialogues. This file is only retrieved when there's a newer file on the server *(It also could store the catchers available for each day, but I haven't confirmed this)*.  
+- `allbadge_v131.dat`: SARC archive. It contains all badges available in the game. I haven't been able to capture traffic to this file, so I suppose it's only retrieved on **creation of new accounts**.  
 
 Except for `playinfo_v131.dat`, all of the files mentioned above can be found decrypted and decompressed inside the `extdata` of the game.
 
@@ -64,5 +68,7 @@ You can check out detailed information about the requests that are made to the s
 
 ## Credits  
 
-- The reverse-engineering of the servers was made using [mitmproxy-nintendo](https://github.com/superwhiskers/mitmproxy-nintendo) and [boss-js](https://github.com/PretendoNetwork/boss-js).  
+Special thanks to:
+- The [Pretendo Network](https://github.com/PretendoNetwork) team and the developers of all of the reverse-engineering tools.  
+- The documentation of the NEX protocol made by [kinnay](https://github.com/kinnay/NintendoClients/wiki).
 - The codebase of this project is based on Pretendo Network's [BOSS](https://github.com/PretendoNetwork/BOSS) servers.
