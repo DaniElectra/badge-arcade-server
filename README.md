@@ -70,5 +70,7 @@ You can check out detailed information about the requests that are made to the s
 
 Special thanks to:
 - The [Pretendo Network](https://github.com/PretendoNetwork) team and the developers of all of the reverse-engineering tools.  
-- The documentation of the NEX protocol made by [kinnay](https://github.com/kinnay/NintendoClients/wiki).
-- The codebase of this project is based on Pretendo Network's [BOSS](https://github.com/PretendoNetwork/BOSS) servers.
+- The documentation of the NEX protocol made by [kinnay](https://github.com/kinnay/NintendoClients/wiki).  
+
+The codebase of this project is based on Pretendo Network's [BOSS](https://github.com/PretendoNetwork/BOSS) servers.  
+
