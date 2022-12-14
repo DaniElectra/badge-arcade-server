@@ -40,10 +40,10 @@ mitmproxy -s badge-arcade.py --no-http2
 
 ## What works  
 
-- [ ] Connect to the servers
-- [x] GET your saved data*  
-- [x] POST new data*  
-- [ ] Handle creating new accounts
+- [x] Connect to the servers
+- [ ] GET your saved data*  
+- [ ] POST new data*  
+- [x] Handle creating new accounts
 
 \* This functionality hasn't been tested, but it should theoretically work.  
 

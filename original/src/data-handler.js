@@ -13,6 +13,7 @@ const authHash = "b912e7d825ab57f7c48255c03ae1fa6fad51b57ef7952d8c58a22a34bfa945
 
 // Setup routes
 dataHandler.get('/10.CTR_JWVJ_datastore/ds/1/data/:fileName', (request, response) => {
+	/*
 	var authorizationHeader = request.header("Authorization");
 	if (authorizationHeader == undefined) {
 		logger.error("GET: Missing auth key");
@@ -29,6 +30,7 @@ dataHandler.get('/10.CTR_JWVJ_datastore/ds/1/data/:fileName', (request, response
 		response.sendStatus(403); // Invalid auth key
 		return;
 	}
+	*/
 
 	const { fileName } = request.params;
 	const contentPath = path.normalize(`${__dirname}/../data/${fileName}`);
@@ -65,6 +67,7 @@ dataHandler.post('/', (request, response) => {
 
 	const aclRegex = new RegExp('name="acl"\r\n\r\n(.*)');
 	var acl = aclRegex.exec(formData)[1];
+	/*
 	const authRegex = new RegExp('name="AWSAccessKeyId"\r\n\r\n(.*)');
 	var auth = authRegex.exec(formData)[1];
 	if (auth == undefined) {
@@ -79,9 +82,10 @@ dataHandler.post('/', (request, response) => {
 		response.sendStatus(403); // Invalid auth key
 		return;
 	}
+	*/
 
 	const policyRegex = new RegExp('name="policy"\r\n\r\n(.*)');
-	var policy = policyRegex.exec(formData)[1];
+	 // var policy = policyRegex.exec(formData)[1];
 
 	// Save file data (match every character until boundary)
 	const dataRegex = new RegExp('name="file"\r\n\r\n(.*)\r\n----------BOUNDARY--------', 'ms')
