@@ -49,22 +49,7 @@ mitmproxy -s badge-arcade.py --no-http2
 
 ## Internal workings  
 
-Before connecting to the main server, some connections are made to Nintendo's BOSS servers to retrieve the following files:  
-
-- `playinfo_v131.dat`: Unknown purpose. This file is **always** retrieved.  
-- `data_v131.dat`: SARC archive. It mostly contains text and dialogues. This file is only retrieved when there's a newer file on the server *(It also could store the catchers available for each day, but I haven't confirmed this)*.  
-- `allbadge_v131.dat`: SARC archive. It contains all badges available in the game. I haven't been able to capture traffic to this file, so I suppose it's only retrieved on **creation of new accounts**.  
-
-Except for `playinfo_v131.dat`, all of the files mentioned above can be found decrypted and decompressed inside the `extdata` of the game.
-
-The main Badge Arcade server is hosted on an AWS S3 server, and it requires an Authorization key and a valid signature to allow processing the requests.  
-
-Since the signature verification is private to the server, this project doesn't include it and thus, it will not verify valid connections for each user. However, we can make request verifications to ensure that valid requests are made and aren't tampered (this is still WIP).
-
-You can check out detailed information about the requests that are made to the server here:  
-
-- [GET Data Request](docs/get-data.md)
-- [POST Data Request](docs/post-data.md)
+Documentation is being moved to [3dbrew](https://www.3dbrew.org/wiki/Nintendo_Badge_Arcade). You can check out the website to see the internal workings.
 
 ## Credits  
 
