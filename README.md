@@ -14,10 +14,12 @@ Currently, I am working on implementing proper servers over NEX. You can find th
 
 ## How to use
 
-First, download the project using `npm`:
+This is the guide to self host the simplified AWS implementation.
+
+First, installl the dependencies using `npm` under the `original` folder:
 
 ```shell
-npm install https://github.com/DaniElectra/badge-arcade-server
+npm install .
 ```
 
 When the server is installed, copy the `example.config.json` to `config.json` and personalize it to your needs.
@@ -30,22 +32,22 @@ node src/server.js
 
 This will create the `data` folder, which will host the main data for each account.
 
-Now, use a proxy server to redirect your traffic from your Nintendo 3DS to the server. If you will use `mitmproxy`, you can use the Python script available with the code:  
+Now, use a proxy server to redirect your traffic from your Nintendo 3DS to the server. If you will use `mitmproxy`, you can use the Python script available with the code (not before also customizing the script (not before also customizing the script):  
 
 ```shell
 mitmproxy -s badge-arcade.py --no-http2
 ```
 
-**Disclaimer**: the server doesn't *(currently)* retrieve any information from the official servers, and thus it will not contain your saves. You will need to provide it yourself by capturing the data using a proxy.  
+**Disclaimer**: You may need to use a custom mitmproxy repository like `mitmproxy-nintendo`, which include the patches for mitmproxy to work under the 3DS.  
 
 ## What works  
 
 - [x] Connect to the servers
-- [ ] GET your saved data*  
-- [ ] POST new data*  
+- [x] GET your saved data*  
+- [x] POST new data*  
 - [x] Handle creating new accounts
 
-\* This functionality hasn't been tested, but it should theoretically work.  
+\* This functionality is dependent on a temporary fix, which isn't upstream yet.  
 
 ## Internal workings  
 
