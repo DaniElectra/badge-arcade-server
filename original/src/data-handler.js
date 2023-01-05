@@ -12,6 +12,22 @@ const dataHandler = express.Router();
 const authHash = "b912e7d825ab57f7c48255c03ae1fa6fad51b57ef7952d8c58a22a34bfa94580";
 
 // Setup routes
+
+dataHandler.head('/10.CTR_JWVJ_datastore/ds/1/data/:fileName', (request, response) => {
+	const { fileName } = request.params;
+	const contentPath = path.normalize(`${__dirname}/../data/${fileName}`);
+
+	if (fs.existsSync(contentPath)) {
+		const contentSize = fs.statSync(contentPath).size;
+		response.set('Content-Length', contentSize);
+		response.end();
+		logger.success("HEAD: File length sent");
+	} else {
+		logger.error("HEAD: File doesn't exist");
+		response.sendStatus(404);
+	}
+})
+
 dataHandler.get('/10.CTR_JWVJ_datastore/ds/1/data/:fileName', (request, response) => {
 	/*
 	var authorizationHeader = request.header("Authorization");
