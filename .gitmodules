@@ -1,6 +1,6 @@
 [submodule "badge-arcade-authentication"]
 	path = badge-arcade-authentication
-	url = https://github.com/DaniElectra/badge-arcade-authentication
+	url = https://github.com/PretendoNetwork/badge-arcade-authentication
 [submodule "badge-arcade-secure"]
 	path = badge-arcade-secure
-	url = https://github.com/DaniElectra/badge-arcade-secure
+	url = https://github.com/PretendoNetwork/badge-arcade-secure
